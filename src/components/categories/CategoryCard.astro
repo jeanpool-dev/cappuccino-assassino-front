@@ -1,0 +1,24 @@
+---
+import type { Category } from '@/types';
+import { Picture } from 'astro:assets';
+interface Props {
+  category: Category;
+}
+
+const { category } = Astro.props;
+---
+
+<div
+  class={` flex items-center gap-4 p-3 border-t border-gray-200 last-of-type:border-b`}
+>
+  <Picture
+    src={category.acf.icon}
+    width={300}
+    height={300}
+    alt={`Imagen de la categoría ${category.name} `}
+    class={'w-20 h-20'}
+  />
+  <a href={`/order/${category.slug}`} class="text-xl font-bold"
+    >{category.name}</a
+  >
+</div>

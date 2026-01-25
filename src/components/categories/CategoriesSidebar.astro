@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { CategoriesSchema } from '@/types';
+import CategoryCard from '@/components/categories/CategoryCard.astro';
 import logo from '@/assets/logo-cappuccino-assassino.png';
 
 const url = `https://cappuccino-assassino.kesug.com/wp-json/wp/v2/ca_categories`;
@@ -22,4 +23,5 @@ console.log(categories);
   <div class="flex justify-center p-5">
     <Image src={logo} alt="logo de cappuccino assassino" class="w-24 h-auto" />
   </div>
+  {categories.map((category) => <CategoryCard category={category} />)}
 </aside>
